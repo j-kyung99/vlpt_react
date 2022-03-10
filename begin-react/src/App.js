@@ -47,6 +47,10 @@ const onCreate = () => {
   });
   nextId.current += 1;
 };
+
+const onRemove = id => {
+  setUsers(users.filter(user => user.id !== id));
+}
   return (
     <>
       <CreateUser
@@ -55,7 +59,7 @@ const onCreate = () => {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList users={users}/>
+      <UserList users={users} onRemove={onRemove}/>
     </>
   );
 }
